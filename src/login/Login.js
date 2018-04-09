@@ -1,6 +1,6 @@
 import React from 'react'
 import * as firebase from 'firebase'
-import { View, Button, Text, StyleSheet, TextInput, Image } from 'react-native'
+import { View, Button, Text, StyleSheet, TextInput, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import {TextField} from 'react-native-material-textfield'
 
 
@@ -22,6 +22,8 @@ export default class Login extends React.Component {
         let {email} = this.state;
         let {password} = this.state;
         return (
+            <KeyboardAvoidingView behavior='padding'>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>   
             <View>
                 <View>
                     <Text style = {styles.titleText} >  DayMinder</Text> 
@@ -37,7 +39,9 @@ export default class Login extends React.Component {
                     <Button title="Login"  onPress ={this.onLoginPress.bind(this)} />
                     <Button title="Sign Up" onPress ={() => console.log("Sign Up Pressed")}/>
                 </View>
-            </View>
+            </View>         
+            </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
         );
     }
 }
