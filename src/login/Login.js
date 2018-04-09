@@ -24,8 +24,9 @@ export default class Login extends React.Component {
         return (
             <View>
                 <View>
+                    <Text style = {styles.titleText} >  DayMinder</Text> 
                     <Image
-                    style = {{width: 200, height: 200}} 
+                    style = {{width: 200, height: 200, marginTop: 20}} 
                     source = {require('../images/sun.png')}/>
                     <TextField label ='Email' 
                     value={email} 
@@ -40,3 +41,11 @@ export default class Login extends React.Component {
         );
     }
 }
+const styles = StyleSheet.create({
+    titleText:{
+        fontFamily: 'Georgia',
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#ffffff',
+        backgroundColor: '#009a00'}
+})
