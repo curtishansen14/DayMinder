@@ -4,7 +4,7 @@ import { View, Button, Text, StyleSheet, TextInput, Image } from 'react-native'
 import {TextField} from 'react-native-material-textfield'
 
 
-export default class login extends React.Component {
+export default class Login extends React.Component {
     state={
         email:'',
         password:''
@@ -24,7 +24,9 @@ export default class login extends React.Component {
         return (
             <View>
                 <View>
-                    <Image />
+                    <Image
+                    style = {{width: 200, height: 200}} 
+                    source = {require('../images/sun.png')}/>
                     <TextField label ='Email' 
                     value={email} 
                     onChangeText={ (email) => this.setState({email})} />
