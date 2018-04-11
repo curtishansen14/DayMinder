@@ -3,7 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import {Card} from 'react-native-elements';
 import * as firebase from 'firebase';
 import Login from "./src/login/Login"
+import Home from "./src/home/Home"
+import Prescription from "./src/prescription/Prescription"
+import Stats from "./src/stats/Stats"
+import account from "./src/account/Account"
 import { FIREBASEAPIKEY } from "./src/components/APIKeys";
+import {StackNavigator,} from 'react-navigation'
 
 
 
@@ -19,12 +24,20 @@ export default class App extends React.Component {
     };
     firebase.initializeApp(config);
     return (
-      <View style={styles.container}>
-      <Login/>
-      </View>
+
+      <Router/> 
     );
   }
 }
+
+const Router = StackNavigator({
+  Login: { screen: Login},
+  Home: {screen: Home},
+  Stats: {screen: Stats},
+  Prescription: {screen: Prescription},
+  Acct: {screen: account}
+
+})
 
 const styles = StyleSheet.create({
   container: {
