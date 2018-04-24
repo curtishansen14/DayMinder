@@ -46,7 +46,8 @@ export default class Login extends React.Component {
                     style = {{width: 200, height: 200, marginTop: 20}} 
                     source = {require('../images/sun.png')}/>
                     <TextField label ='Email' 
-                    value={email} 
+                    value={email}
+                    keyboardType='email-address' 
                     onChangeText={ (email) => this.setState({email})} />
                     <TextField label ='Password'
                     value={password}
