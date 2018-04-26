@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  ImageBackground,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
@@ -32,62 +33,107 @@ export default class Home extends React.Component {
 
     return (
       <View>
-        <Text>Hello</Text>
+        <ImageBackground 
+        style = {{width: "100%"}}
+        source = {require('../images/DayMinder_Sunset.png')}> 
+        <Text>What did you do today?</Text>
         <View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              flex: 1
-            }}
-          >
+       
+          <View style={styles.container}>
             <Picker
               selectedValue={this.state.choiceOne}
-              style={{ height: 50, width: 100 }}
+              style={{ height: 50, width: 200 }}
               onValueChange={(itemValue, itemIndex) =>
                 this.setState({ choiceOne: itemValue })
               }
             >
-              <Picker.Item label="Slept A Jillion Hours" value="java" />
-              <Picker.Item label="Party" value="js" />
+              <Picker.Item label="Up Early" value="Wake" />
+              <Picker.Item label="Bed on time" value="Sleep" />
               <Picker.Item label="Socialized" value="Soc" />
+              <Picker.Item label="Cooked" value="Cook" />
+              <Picker.Item label="Worked >8hr" value="OverWork" />
+              <Picker.Item label="Exercised" value="Exercise" />
+              <Picker.Item label="Read" value="Read" />
+              <Picker.Item label="Played Game" value ="Game"/>
+              <Picker.Item label="Played Instrument" value ="Music"/>
+              <Picker.Item label='Wrote' value='Write'/> 
+              <Picker.Item label='Watched TV' value='TV'/>     
             </Picker>
             <Picker
               selectedValue={this.state.choiceTwo}
-              style={{ height: 50, width: 100 }}
+              style={{ height: 50, width: 200 }}
               onValueChange={(itemValue, itemIndex) =>
                 this.setState({ choiceTwo: itemValue })
               }
             >
-              <Picker.Item label="Slept A Jillion Hours" value="java" />
-              <Picker.Item label="Party" value="js" />
+              <Picker.Item label="Up Early" value="Wake" />
+              <Picker.Item label="Bed on time" value="Sleep" />
               <Picker.Item label="Socialized" value="Soc" />
-              <Picker.Item label="Socialized" value="Soc" />
-              <Picker.Item label="Socialized" value="Soc" />
-              <Picker.Item label="Socialized" value="Soc" />
-              <Picker.Item label="Socialized" value="Soc" />
-              <Picker.Item label="Socialized" value="Soc" />
+              <Picker.Item label="Cooked" value="Cook" />
+              <Picker.Item label="Worked >8hr" value="OverWork" />
+              <Picker.Item label="Exercised" value="Exercise" />
+              <Picker.Item label="Read" value="Read" />
+              <Picker.Item label="Played Game" value ="Game"/>
+              <Picker.Item label="Played Instrument" value ="Music"/>
+              <Picker.Item label='Wrote' value='Write'/> 
+              <Picker.Item label='Watched TV' value='TV'/>              
             </Picker>
+            </View>
+
+        <View style= {styles.containerCentered}>
             <Picker
               selectedValue={this.state.choiceThree}
-              style={{ height: 50, width: 100 }}
+              style={{ height: 50, width: 200 }}
               onValueChange={(itemValue, itemIndex) =>
                 this.setState({ choiceThree: itemValue })
               }
             >
-              <Picker.Item label="Slept A Jillion Hours" value="java" />
-              <Picker.Item label="Party" value="js" />
+              <Picker.Item label="Up Early" value="Wake" />
+              <Picker.Item label="Bed on time" value="Sleep" />
               <Picker.Item label="Socialized" value="Soc" />
+              <Picker.Item label="Cooked" value="Cook" />
+              <Picker.Item label="Worked >8hr" value="OverWork" />
+              <Picker.Item label="Exercised" value="Exercise" />
+              <Picker.Item label="Read" value="Read" />
+              <Picker.Item label="Played Game" value ="Game"/>
+              <Picker.Item label="Played Instrument" value ="Music"/>
+              <Picker.Item label='Wrote' value='Write'/> 
+              <Picker.Item label='Watched TV' value='TV'/>     
             </Picker>
+            </View>
+            
           </View>
-
-          <Button
+        
+    
+  
+        </ImageBackground>
+        <View style={styles.buttonStyle}>
+        <Button
             title="Submit"
             color="#009a00"
             onPress={this.onPress.bind(this)}
           />
-        </View>
+        </View> 
       </View>
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    height: 200,
+    justifyContent: 'space-between'
+  },
+  containerCentered : {
+    flexDirection: 'row',
+    height: 200,
+    justifyContent: 'center',
+  },
+
+  buttonStyle:{
+    marginTop: 20
+  } 
+
+})
