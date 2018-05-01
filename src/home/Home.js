@@ -32,6 +32,7 @@ export default class Home extends React.Component {
     choiceOne: "Wake",
     choiceTwo: "Wake",
     choiceThree: "Wake",
+    choiceFour: "Wake",
     dayRating: 0
   };
 
@@ -55,13 +56,19 @@ export default class Home extends React.Component {
     console.log("Hello Dylan");
 
     return (
-      <View>
-        <ImageBackground
-          style={{ width: "100%" }}
-          source={require("../images/DayMinder_Sunset.png")}
-        >
-          <Text style={styles.titleText}>What did you do today?</Text>
-          <View>
+      <View style ={styles.background}>
+      <View style={styles.headerView}>
+      <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
+                    <Text style={styles.titleText}>Tuesday</Text>
+                    <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
+        </View>
+        <View>
+          <View style={styles.calandarView}>
+          <Text style={styles.calanderText}> 01. </Text>
             <View style={styles.container}>
               <Picker
                 selectedValue={this.state.choiceOne}
@@ -103,7 +110,7 @@ export default class Home extends React.Component {
               </Picker>
             </View>
 
-            <View style={styles.containerCentered}>
+            <View style={styles.container}>
               <Picker
                 selectedValue={this.state.choiceThree}
                 style={{ height: 50, width: 200 }}
@@ -123,9 +130,28 @@ export default class Home extends React.Component {
                 <Picker.Item label="Wrote" value="Write" />
                 <Picker.Item label="Watched TV" value="TV" />
               </Picker>
+              <Picker
+                selectedValue={this.state.choiceFour}
+                style={{ height: 50, width: 200 }}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({ choiceFour: itemValue })
+                }
+              >
+                <Picker.Item label="Up Early" value="Wake" />
+                <Picker.Item label="Bed on time" value="Sleep" />
+                <Picker.Item label="Socialized" value="Soc" />
+                <Picker.Item label="Cooked" value="Cook" />
+                <Picker.Item label="Worked >8hr" value="OverWork" />
+                <Picker.Item label="Exercised" value="Exercise" />
+                <Picker.Item label="Read" value="Read" />
+                <Picker.Item label="Played Game" value="Game" />
+                <Picker.Item label="Played Instrument" value="Music" />
+                <Picker.Item label="Wrote" value="Write" />
+                <Picker.Item label="Watched TV" value="TV" />
+              </Picker>
             </View>
           </View>
-        </ImageBackground>
+        </View>
 
         <View style={styles.rateStyle}>
           <Rating
@@ -151,17 +177,20 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    height: 200,
-    justifyContent: "space-between"
+    height: 175,
+    justifyContent: "space-evenly"
   },
   containerCentered: {
     flexDirection: "row",
-    height: 200,
     justifyContent: "center"
   },
 
+  background:{
+    backgroundColor: "#ffffff",
+  },
+
   buttonStyle: {
-    marginTop: 10
+    marginTop: 10,
   },
   rateStyle: {
     marginTop: 10,
@@ -171,7 +200,37 @@ const styles = StyleSheet.create({
   titleText:{
     fontFamily: 'Georgia',
     fontSize: 30,
-    fontWeight: 'bold',
+    marginTop: 5,
+    backgroundColor: '#009a00',
     color: '#ffffff',
-    backgroundColor: '#009a00'}
+    fontFamily: 'Georgia',
+    fontWeight: 'bold'
+  },
+  headerView: {
+    justifyContent: 'space-evenly',
+    flexDirection: 'row',
+    borderRadius: 4,
+    borderWidth: 3,
+    borderColor: '#191919',
+    backgroundColor: '#009a00',
+
+  },
+  calandarView: {
+    height: 400,
+    borderRadius: 3,
+    borderWidth: 3,
+    borderColor: '#009a00',
+    backgroundColor: '#f8f8f8'
+  },
+  calanderText: {
+    width: 40,
+    height: 40,
+    borderColor: '#191919',
+    borderWidth: 2,
+    borderRadius: 4,
+    fontSize: 20,
+    fontWeight: 'bold',
+    backgroundColor: '#ffffff'
+  }
+
 });
