@@ -8,14 +8,33 @@ export default class Stats extends React.Component{
     render(){
         console.log('Stats')
         return(
+            <View>
             <View style={styles.headerView}>
-                <View>
-                <Text>Graph of week</Text>
-                </View>
-                <View>
-                </View>
-                <Text>Graph of month</Text>
+            <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
+                    <Text style={styles.titleText}>Weekly</Text>
+                    <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
             </View>
+                <View style ={styles.calandarView}>
+            
+                </View>
+                <View style={styles.headerView}>
+            <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
+                    <Text style={styles.titleText}>90 day</Text>
+                    <Image
+                    style = {{width: 30, height: 30, marginTop: 5}} 
+                    source = {require('../images/sun.png')}/>
+            </View>
+                <View style ={styles.calandarView}>
+            
+                </View>
+            </View>
+            
     );
 }
 }
@@ -46,7 +65,7 @@ const styles = StyleSheet.create({
     
       },
       calandarView: {
-        height: 400,
+        height: 232,
         borderRadius: 3,
         borderWidth: 3,
         borderColor: '#009a00',
