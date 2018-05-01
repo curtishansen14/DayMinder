@@ -64,7 +64,7 @@ const Tabs = TabNavigator(
 );
 
 const Router = StackNavigator({
-// Login: { screen: Login },
+ Login: { screen: Login },
  Home: { screen: Tabs }
 });
 
