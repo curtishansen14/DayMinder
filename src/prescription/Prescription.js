@@ -3,8 +3,33 @@ import * as firebase from 'firebase'
 import { View, Button, Text, StyleSheet, TextInput, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import {TextField} from 'react-native-material-textfield'
 import {StackNavigator,} from 'react-navigation'
+import {getUserName} from '../home/Home'
 
 export default class Prescription extends React.Component{
+
+async readFirebase(path){
+    var data = await firebase
+    .database()
+    .ref(path)
+    .once('value')
+    .then(function(dataSnapShot){
+        value = dataSnapShot.val();
+    });
+    return value;
+}
+
+async getUsersData(){
+    var userName = await getUserName()
+    var userDate = await this.readFirebase("users/" + userName)
+
+    return userDate;
+}
+
+async getUserDayRatings(){
+    let data = await getUsersData()
+    
+    
+}
     render(){
         console.log('Prescription')
         return(

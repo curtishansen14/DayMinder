@@ -20,7 +20,7 @@ import { StackNavigator } from "react-navigation";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { moment } from 'moment';
 
-async function getUserName() {
+export async function getUserName() {
   const {currentUser} = await firebase.auth();
   console.log(currentUser);
   let result = currentUser.uid;
@@ -37,14 +37,13 @@ export default class Home extends React.Component {
     choiceThree: "Wake",
     choiceFour: "Wake",
     dayRating: 0,
-    currentDay = moment().format('dddd'),
   };
 
   async onPress() {
-    const { choiceOne, choiceTwo, choiceThree, rating } = this.state;
+    const { choiceOne, choiceTwo, choiceThree, rating, day } = this.state;
     console.log("Submitted");
     var db = firebase.database();
-    let today = Date.now();
+    let today = moment().format("MMM Do YYYY");
     let userID = await getUserName();
     db.ref('users/' + userID + 'days/' + today).set({
       day: this.state
@@ -58,6 +57,10 @@ export default class Home extends React.Component {
   }
 
   render() {
+
+    var moment = require('moment');
+    var day = moment().format('dddd');
+
     return (
       <View style ={styles.background}>
       <StatusBar barStyle= "dark-content" hidden = {false}/>
@@ -65,7 +68,7 @@ export default class Home extends React.Component {
       <Image
                     style = {{width: 30, height: 30, marginTop: 5}} 
                     source = {require('../images/sun.png')}/>
-                    <Moment format = "dddd">{this.props.dateToFormat}</Moment>
+                    <Text style={styles.titleText}>{day}</Text>
                     <Image
                     style = {{width: 30, height: 30, marginTop: 5}} 
                     source = {require('../images/sun.png')}/>
@@ -190,7 +193,7 @@ const styles = StyleSheet.create({
   },
 
   background:{
-    backgroundColor: "#ffffff",
+    backgroundColor: "#ffffff"
   },
 
   buttonStyle: {
