@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Georgia',
         fontSize: 30,
         marginTop: 5,
-        backgroundColor: '#009a00',
+        backgroundColor: '#30daf4',
         color: '#ffffff',
         fontFamily: 'Georgia',
         fontWeight: 'bold'
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 3,
         borderColor: '#191919',
-        backgroundColor: '#009a00',
+        backgroundColor: '#30daf4',
     
       },
       calandarView: {

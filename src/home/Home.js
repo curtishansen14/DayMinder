@@ -11,11 +11,14 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Picker
+  Picker,
+  StatusBar,
 } from "react-native";
+import { Header } from 'react-native-elements';
 import { TextField } from "react-native-material-textfield";
 import { StackNavigator } from "react-navigation";
 import { Rating, AirbnbRating } from "react-native-ratings";
+import { moment } from 'moment';
 
 async function getUserName() {
   const {currentUser} = await firebase.auth();
@@ -33,7 +36,8 @@ export default class Home extends React.Component {
     choiceTwo: "Wake",
     choiceThree: "Wake",
     choiceFour: "Wake",
-    dayRating: 0
+    dayRating: 0,
+    currentDay = moment().format('dddd'),
   };
 
   async onPress() {
@@ -47,21 +51,21 @@ export default class Home extends React.Component {
     });
   }
 
+
   ratingCompleted(rating){
     this.setState({dayRating: rating})
     console.log('state' + this.state.rating);
   }
 
   render() {
-    console.log("Hello Dylan");
-
     return (
       <View style ={styles.background}>
+      <StatusBar barStyle= "dark-content" hidden = {false}/>
       <View style={styles.headerView}>
       <Image
                     style = {{width: 30, height: 30, marginTop: 5}} 
                     source = {require('../images/sun.png')}/>
-                    <Text style={styles.titleText}>Tuesday</Text>
+                    <Moment format = "dddd">{this.props.dateToFormat}</Moment>
                     <Image
                     style = {{width: 30, height: 30, marginTop: 5}} 
                     source = {require('../images/sun.png')}/>
@@ -201,7 +205,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Georgia',
     fontSize: 30,
     marginTop: 5,
-    backgroundColor: '#009a00',
+    backgroundColor: '#fc5fd5',
     color: '#ffffff',
     fontFamily: 'Georgia',
     fontWeight: 'bold'
@@ -212,14 +216,14 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 3,
     borderColor: '#191919',
-    backgroundColor: '#009a00',
+    backgroundColor: '#fc5fd5',
 
   },
   calandarView: {
     height: 400,
     borderRadius: 3,
     borderWidth: 3,
-    borderColor: '#009a00',
+    borderColor: '#fc5fd5',
     backgroundColor: '#f8f8f8'
   },
   calanderText: {
