@@ -13,9 +13,25 @@ import {
 } from "react-native";
 import { TextField } from "react-native-material-textfield";
 import { StackNavigator } from "react-navigation";
+//import {Bar} from 'react-chartjs-2';
 
+
+//const data = {
+//  labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+//  datasets: [
+//    {
+//      label: 'First Attempt',
+//      backgroundColor: "#f8f8f8",
+//      borderColor: '#c71585',
+//      borderWidth: 1,
+//      data: [1,2,3,4,5,6,7] 
+//    }
+//  ]
+//};
 
 export default class Stats extends React.Component {
+
+
   render() {
     console.log("Stats");
     return (
@@ -32,7 +48,9 @@ export default class Stats extends React.Component {
           />
         </View>
         <View style={styles.calandarView}>
-     
+        <Bar data={data}
+        width={100}
+        height={50}/>
       </View>
 
         <View style={styles.headerView}>
