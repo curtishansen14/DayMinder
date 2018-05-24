@@ -14,6 +14,7 @@ import {
 import { TextField } from "react-native-material-textfield";
 import { StackNavigator } from "react-navigation";
 
+
 export default class Stats extends React.Component {
   render() {
     console.log("Stats");
@@ -30,7 +31,10 @@ export default class Stats extends React.Component {
             source={require("../images/sun.png")}
           />
         </View>
-        <View style={styles.calandarView} />
+        <View style={styles.calandarView}>
+     
+      </View>
+
         <View style={styles.headerView}>
           <Image
             style={{ width: 30, height: 30, marginTop: 5 }}
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 4,
     borderWidth: 3,
-    borderColor: "#191919",
+    borderColor: "#009a00",
     backgroundColor: "#009a00"
   },
   calandarView: {

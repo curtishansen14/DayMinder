@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Georgia',
     fontSize: 30,
     marginTop: 5,
-    backgroundColor: '#fc5fd5',
+    backgroundColor: "#009a00",
     color: '#ffffff',
     fontFamily: 'Georgia',
     fontWeight: 'bold'
@@ -218,16 +218,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 4,
     borderWidth: 3,
-    borderColor: '#191919',
-    backgroundColor: '#fc5fd5',
+    borderColor: "#009a00",
+    backgroundColor: "#009a00"
 
   },
   calandarView: {
     height: 400,
     borderRadius: 3,
     borderWidth: 3,
-    borderColor: '#fc5fd5',
-    backgroundColor: '#f8f8f8'
+    borderColor: "#009a00",
+    backgroundColor: "#f8f8f8"
   },
   calanderText: {
     width: 40,
